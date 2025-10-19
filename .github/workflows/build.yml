@@ -44,6 +44,10 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          build-args: |
+            SPARK_BASE_URL=https://spark.ihatemy.live
+            SPARK_BYTEBIN_URL=https://bytebin.ihatemy.live
+            SPARK_BYTESOCKS_URL=https://bytesocks.ihatemy.live
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
